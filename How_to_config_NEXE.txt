@@ -1,0 +1,23 @@
+בכדי לייצא קובץ exe דרך VS CODE  יש לבצע את השלבים הנ"ל : 
+
+1. להוריד VISUAL STUDIO 2022 ולוודא(!) שמסמנים את הworkload ששמו desktop development with c++ (כמו שכתוב בסטאק אובר פלואו: 
+https://stackoverflow.com/questions/67464657/i-have-a-problem-with-npm-package-nexe-and-visual-studio-trying-to-convert-a-no ) 
+
+2. להוריד את nasm למחשב ( https://www.nasm.us/pub/nasm/releasebuilds/2.15.04/win64/)  --> אם יש גרסה עדכנית , אז להוריד אותה
+
+3. להתקין את nexe  ---> 
+npm install -g nexe
+
+4. לכתוב בפאוור של של הVS CODE  : 
+ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser  
+
+5. לבנות: 
+
+nexe start.js -r "config.js" -r "nexe.config.js" -r "routes/common/oauth.js" -r "routes" -r "public//." -r ".vscode/**/." -r "package-lock.json" -r "package.json" --build --output "BI-Fitouts-local-8.5.23.exe"
+
+
+3. אם זה לא עובד, לבדוק בלוג של nexe  ע"י שימוש ב verbose :
+
+nexe start.js --build --verbose 
+
+##
